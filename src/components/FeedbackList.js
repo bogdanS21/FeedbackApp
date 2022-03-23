@@ -45,7 +45,8 @@ export default function FeedbackList({feedback,handleDelete}) {
 FeedbackList.propTypes={
     feedback:propTypes.arrayOf(
         propTypes.shape({
-            id:propTypes.number.isRequired,
+            //id:propTypes.number.isRequired,
+            //Fixed :Invalid prop `feedback[0].id` of type `string` supplied to `FeedbackList`, expected `number`.
             text: propTypes.string.isRequired,
             rating:propTypes.number.isRequired
         })

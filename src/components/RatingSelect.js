@@ -14,7 +14,7 @@ export default function RatingSelect({select}) {
            <input
                type='radio'
                id='num1'
-               value='1'
+               value="1"
                onChange={handleChange}
                checked={selected === 1}
            /> 

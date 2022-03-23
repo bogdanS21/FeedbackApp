@@ -24,6 +24,7 @@ export default function FeedbackForm({handleAdd}) {
         }
 
         setText(e.target.value)}
+        
     const handleSubmit =(e)=> {
         e.preventDefault()
         if(text.trim().length>10){
