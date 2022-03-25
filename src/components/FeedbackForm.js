@@ -73,6 +73,7 @@ export default function FeedbackForm() {
                     {message && <div className='message'>{message}</div>}
                 </form>
             </Card>
+           
       </div>
   )
 }
