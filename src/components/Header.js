@@ -7,9 +7,10 @@ import PropTypes from 'prop-types'
     }
   return (
     <header style={headerStyles}>
-        <div className='container'>
-            <h2>{text}</h2>
+            <div className='container'>
+                <h2>{text}</h2>
         </div>
+
     </header>
   )
 }
@@ -24,4 +25,7 @@ Header.propTypes={
     bgColor:PropTypes.string,
     textColor:PropTypes.string
 }
+
+
+
 export default Header

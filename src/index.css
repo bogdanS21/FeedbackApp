@@ -227,4 +227,49 @@ input:focus {
   .input-group input {
     width: 80%;
   }
+  .snackbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: min(100%, 400px);
+  }
+  .snackbar.content,
+  .snackbar .action {
+    padding: 16px;
+  }
+  .snackbar .action {
+    background: none;
+    border: none;
+    outline: none;
+
+    margin-left: auto;
+    cursor: pointer;
+
+    color: #8effff;
+    border-radius: 2px;
+    padding: 16px;
+  }
+  .snackbar .action:focus {
+    outline: solid white 1px;
+    background-color: #ffffff11;
+  }
+  .snackbar {
+    animation: slide-in 599ms ease, slide-out 500ms ease 3s;
+  }
+  @keyframes slide-in {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes slide-out {
+    from {
+      transform: translateY(100%);
+    }
+  }
 }
