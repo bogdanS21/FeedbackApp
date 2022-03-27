@@ -16,7 +16,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=desc`)
+    const response = await fetch(`https://cheerful-taffy-fc3281.netlify.app/db.json/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
     setFeedback(data)
@@ -29,6 +29,7 @@ export const FeedbackProvider = ({ children }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'secret-key	':'$2b$10$QJVrrCnDXw5h1MeqKUpOJuXKdb7MMva9ktpyn9Ousw0YipdXYbj3u'
       },
       body: JSON.stringify(newFeedback),
     })
@@ -62,8 +63,7 @@ export const FeedbackProvider = ({ children }) => {
     setFeedback(
       feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
     )
-    // FIX: this fixes being able to add a feedback after editing
-    // credit to Jose https://www.udemy.com/course/react-front-to-back-2022/learn/lecture/29768200#questions/16462688
+    
     setFeedbackEdit({
       item: {},
       edit: false,
