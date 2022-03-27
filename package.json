@@ -2,7 +2,6 @@
   "name": "feeback-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://cheerful-taffy-fc3281.netlify.app",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

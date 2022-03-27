@@ -3,8 +3,10 @@ import { createContext, useState, useEffect } from 'react'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
+  const apiURL='https://db-feedback-app.herokuapp.com'
   const [isLoading, setIsLoading] = useState(true)
   const [feedback, setFeedback] = useState([])
+
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
@@ -16,7 +18,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`https://cheerful-taffy-fc3281.netlify.app/db.json/feedback?_sort=id&_order=desc`)
+    const response = await fetch(`${apiURL}/feedback?_sort=id&_order=desc`)
     const data = await response.json()
 
     setFeedback(data)
@@ -25,11 +27,10 @@ export const FeedbackProvider = ({ children }) => {
 
   // Add feedback
   const addFeedback = async (newFeedback) => {
-    const response = await fetch('/feedback', {
+    const response = await fetch(`${apiURL}/feedback`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'secret-key	':'$2b$10$QJVrrCnDXw5h1MeqKUpOJuXKdb7MMva9ktpyn9Ousw0YipdXYbj3u'
       },
       body: JSON.stringify(newFeedback),
     })
@@ -42,7 +43,7 @@ export const FeedbackProvider = ({ children }) => {
   // Delete feedback
   const deleteFeedback = async (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
-      await fetch(`/feedback/${id}`, { method: 'DELETE' })
+      await fetch(`${apiURL}/feedback/${id}`, { method: 'DELETE' })
 
       setFeedback(feedback.filter((item) => item.id !== id))
     }
@@ -50,7 +51,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // Update feedback item
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, {
+    const response = await fetch(`${apiURL}/feedback/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
